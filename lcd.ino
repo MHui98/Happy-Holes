@@ -117,12 +117,16 @@ void refreshGame() {
 
 
 
-
+/*
+ * Stehlik said my old methods were too complicated );
+ * Method is each time the goal is reached (Putting hand in correct hole)
+ * First will cycle through the rainbow on all the LED Rings (1 colour per LED ring)
+ */
 void forcedToBeBoring(){
   int hue;
-  for(int i = 0; i <=6; i++){
-    hue = colour[i];
-   for(int j = 0; j < NUM_LEDS; j++){  
+  for(int i = 0; i <=6; i++){ //will loop through all 6 led rings to light them up
+    hue = colour[i]; //will select the colour for the LED ring from a Array of ints,index is the i int 
+   for(int j = 0; j < NUM_LEDS; j++){  //this will loop through the individual led's in each individual led ring
   strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
   strip.show();
  
@@ -131,11 +135,13 @@ void forcedToBeBoring(){
   }
   off();
 }
-
+/*
+ * This method Will wait 250ms and then make all the LED's green in order to start the next goal
+ */
 void off(){
- for(int i = 0; i <=6; i++){
+ for(int i = 0; i <=6; i++){ //loops through all 6 led rings 
  
-   for(int j = 0; j < NUM_LEDS; j++){
+   for(int j = 0; j < NUM_LEDS; j++){ //loop through the individual led's in each led ring to light them up
   strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(20000))); 
   strip.show();
  
@@ -143,7 +149,7 @@ void off(){
      
   }
   delay(250);
-  
+  // some colour codes that I should probably know
   // 20000 green
   // 0 red
   // 30000 turq
