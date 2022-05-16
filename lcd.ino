@@ -112,92 +112,11 @@ void refreshGame() {
    }
 }
 
-//does the random animation
-void remix(int num){
 
- int hue = random(65536);
-if(num == 0 || num == 1){
-  for(int i = 6; i >= num; i--){
-    hue = random(65536);
-    for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-     delay(250);
-    
-  }
-}else{
-  for(int i = 0; i <= num; i++){
-    hue = random(65536);
-    for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-     delay(250);
-    
-  }
-}
-  
-}
 
-void jesse(int num, int goalNow){
-  int i = num;
-   int hue = random(65536);
-   do{
-   
-     for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-     delay(250);
-       i = i-1;
-       Serial.print(i);
-       hue = random(65536);
-   }while( i >= 0 );
-   i = 6;
-   while( i != goalNow){
-     for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-     delay(250);
-       i--;
-       Serial.print(i);
-       hue = random(65536);
-   }
- 
-   
-}
 
-void ahh(int num, int goal){
 
-  int i = num;
-  int hue = random(65536);
-  if(i == num){
-  
-  }
- else if(i <= 0){
-      for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-    
-    ahh(6,goal);
-  }else{
-     for(int j = 0; j < NUM_LEDS; j++){
-  strip.setPixelColor(j + (NUM_LEDS * i),strip.gamma32(strip.ColorHSV(hue))); 
-  strip.show();
- 
-    }
-     delay(250);
-     ahh(i-1,goal);
-  }
-}
+
 
 void forcedToBeBoring(){
   int hue;
