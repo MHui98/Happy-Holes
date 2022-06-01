@@ -81,7 +81,9 @@ void refreshSensors() {
       }
    }
 }
-
+/*
+ * This will refresh the lights each time the goal is reached
+ */
 void refreshLights() {
 //Checks each light if it is the current goal
   for(int i = 0; i < NUM_RINGS; i++) {
@@ -94,7 +96,10 @@ void refreshLights() {
     }
   }
 }
-
+/*
+ * Refreshes the game each time the goal is reached
+ * will call the methods to do the animations 
+ */
 void refreshGame() {
   int num = random(6);
   while(num == currentGoal){
@@ -119,7 +124,7 @@ void refreshGame() {
 
 /*
  * Stehlik said my old methods were too complicated );
- * Method is each time the goal is reached (Putting hand in correct hole)
+ * Method is called each time the goal is reached (Putting hand in correct hole)
  * First will cycle through the rainbow on all the LED Rings (1 colour per LED ring)
  */
 void forcedToBeBoring(){
@@ -159,33 +164,7 @@ void off(){
      
 }
 
-int select(){
-  int num = random(1,6);
-  while(num == pastColour){
-    num = random(1,6);
-  }
-  if(num == 1){
-    return(green);
-    pastColour = 1;
-  }else if(num == 2){
-    return(blue);
-    pastColour = 2;
-  }else if(num == 3){
-    return(blueDark);
-    pastColour = 3;
-  }else if(num == 4){
-    return(purple);
-    pastColour = 4;
-  }else if(num == 5){
-    return(yellow);
-    pastColour = 5;
-  }else if(num == 6){
-     pastColour = 6;
-    return(red);
-   
-  }
-  
-}
+
 
 void rainbow(int ringNum) {
 //sets a ring to rainbow effect
